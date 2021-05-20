@@ -3,11 +3,11 @@
 
 function tipAmount(bill, srvRating) {
     if (srvRating == "good") {
-        return new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(bill * .2);
+        return bill * .2;
     } else if (srvRating == "fair") {
-        return new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(bill * .15);
+        return bill * .15;
     } else if (srvRating == "bad") {
-        return new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(bill * .1);
+        return  bill * .1;
     }
 }
 console.log(tipAmount(100, "good"));
@@ -16,7 +16,7 @@ console.log(tipAmount(100, "good"));
 
 
 function totalAmount(bill, srvRating) {
-    return tipAmount(bill, srvRating) + Number.parseFloat(bill);
+    return bill + tipAmount(bill, srvRating);
 }
 console.log(totalAmount(100, "good"));
 
